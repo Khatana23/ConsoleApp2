@@ -1,0 +1,9 @@
+{
+  "SourcePath": "C:\\Pro\\",
+  "SourceFiles": [ "C:\\Pro\\SFTP_upload_test.txt" ],
+  "DestinationPath": "/",
+  "FtpServerIp": "192.168.0.104",
+  "FtpServerPort": "22",
+  "User": "Tester2",
+  "Password": "123qwe"
+}
