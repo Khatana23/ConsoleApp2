@@ -8,6 +8,7 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             Console.WriteLine("Hello!");
 
             var exitFlg = false;
@@ -19,6 +20,7 @@ namespace ConsoleApp2
                 {
                     case "exit": exitFlg = true; break;
                     case "upload": Upload();  break;
+                    case "excel": ExcelConvert(); break;
                     default: break;
                 }
             }
@@ -36,6 +38,14 @@ namespace ConsoleApp2
             var uploadfile = configToken["SourceFiles"][0].ToString();
 
             Common.Upload(host, port, username, password, workingdirectory, uploadfile);
+        }
+        static void ExcelConvert()
+        {
+            Console.Write("Agent> Excel file path: ");
+            var input = Console.ReadLine();
+            Console.Write("Agent> Output path: ");
+            var input2 = Path.ChangeExtension(Console.ReadLine(),".csv");
+            Common.SaveExcelFileAsCsv(input, input2);
         }
     }
 }
